@@ -1,0 +1,15 @@
+version: v1
+# マネージドモードを有効
+managed:
+  enabled: true
+  go_package_prefix:
+    default: github.com/JY8752/buf-demo/example/gen # デフォルトのpackage名を指定。これは必須
+plugins:
+  # TypeScript (protobuf-es)
+  - plugin: buf.build/bufbuild/es:v1.9.0
+    out: gen/ts
+    opt:
+      - target=ts
+  # Kotlin (JVM / Android)
+  - plugin: buf.build/protocolbuffers/kotlin:v33.4
+    out: gen/kotlin
